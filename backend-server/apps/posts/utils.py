@@ -5,8 +5,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #---------------------------------- POSTS GENERATION SERVICE USING AI ----------------------------------
+
+
 class AIService:
-    # STEP 1 : PROVIDE THE API CONFIG 
+    # step 1: provide the api config 
     api_key = os.getenv('DEEPSEEK_API_KEY')
     API_URL = "https://openrouter.ai/api/v1/chat/completions"
     HEADERS = {
@@ -15,7 +17,7 @@ class AIService:
 
     @staticmethod
     def generate_post(content: str, platform: str) -> str:
-        # STEP 2 : PREPARE THE PROMPTS TEMPLATE
+        # step 2: prepare the prompts template
         prompts = {
             'linkedin': f"Transform this content into a professional LinkedIn post: {content}",
             'facebook': f"Transform this content into an engaging Facebook post: {content}",
@@ -24,8 +26,8 @@ class AIService:
         
         if platform not in prompts:
             return "Invalid platform"
-        #STEP 3 : SEND A REQUEST TO THE DEEPSEEK API : YOU CAN CHANGE THE MODEL 
-
+        
+        # step 3: send a request to the deepseek api; you can change the model 
         try:
             response = requests.post(
                 url=AIService.API_URL,
@@ -33,7 +35,8 @@ class AIService:
                 json={"model": "deepseek/deepseek-chat:free", "messages": [{"role": "user", "content": prompts[platform]}]}
             )
             response_data = response.json()
-        # STEP 4 : PROCESS THE RESPONSE AND RETURN THE GENERATED POST
+            
+            # step 4: process the response and return the generated post
             return response_data["choices"][0]["message"]["content"].strip()
         except Exception as e:
             print(f"Erreur lors de la génération du contenu: {str(e)}")

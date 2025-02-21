@@ -12,18 +12,18 @@ from .utils import AIService
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])  # only authenticated users 
 def create_post(request):
-    #STEP 1 : GET THE USER REQUEST : CONTENT AND PLATFORM
+    #step 1 : get the user request : content and platform
     original_content = request.data.get('original_content', '')
     platform = request.data.get('platform', '')
 
     if platform not in ['linkedin', 'facebook', 'twitter(X)']:
         return Response({'error': 'Invalid platform'}, status=status.HTTP_400_BAD_REQUEST)
 
-    #STEP 2 : GENERATE THE POST USING AI 
+    #step 2 : generate the post using ai
     generated_content = AIService.generate_post(original_content, platform)
     print("generated_content", generated_content)
 
-    #STEP 3 : SAVE THE RESULTS IN THE DATABASE
+    #step 3 : save the results in the database
     post_data = {
         'original_content': original_content,
         'platform': platform,
@@ -43,7 +43,7 @@ def create_post(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_user_posts(request):
-    #RETURN THE POSTS FOR THE AUTHENTICATED USER ORDERED BY DATE OF CREATION
+    #return the posts for the authenticated user ordered by date of creation
     user = request.user
     posts = Post.objects.filter(user=user).order_by('-created_at') 
     serializer = PostSerializer(posts, many=True) 
