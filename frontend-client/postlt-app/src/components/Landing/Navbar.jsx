@@ -27,7 +27,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
   };
 
   return (
-    <nav className="relative container mx-auto p-6">
+    <nav className="relative container mx-auto p-6 ">
       {/* Flex Container */}
       <div className="flex items-center justify-between">
         {/* Logo */}
@@ -36,7 +36,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden space-x-6 md:flex">
+        <div className="hidden space-x-6 md:flex font-semibold">
           {menuItems.map((item) => (
             <span key={item.label}>
               {item.onClick ? (
@@ -75,7 +75,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
         {cta && (
           <button
             type="button"
-            className="hidden md:block p-3 px-6 text-white bg-[#28AA4A] rounded-full hover:bg-green-700 transition"
+            className="hidden md:block p-3 px-6 text-white bg-[#28AA4A] rounded-full hover:bg-green-700 transition font-semibold"
             onClick={handleCTAClick}
           >
             {cta.label}
@@ -110,7 +110,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
           </button>
 
           {/* Menu Items - Properly Centered */}
-          <div className="flex flex-col items-center justify-center flex-grow gap-6 font-bold">
+          <div className="flex flex-col items-center justify-center flex-grow gap-6 font-semibold">
             {menuItems.map((item) => (
               <span key={item.label}>
                 {item.onClick ? (
@@ -127,7 +127,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
                 ) : item.path.startsWith("#") ? (
                   <a
                     href={item.path}
-                    className="hover:text-gray-900"
+                    className="hover:text-gray-900 "
                     onClick={(e) => handleAnchorClick(e, item.path)}
                   >
                     {item.label}
@@ -135,7 +135,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
                 ) : (
                   <Link
                     to={item.path}
-                    className="hover:text-gray-900"
+                    className="hover:text-gray-900 "
                     onClick={() => setToggleMenu(false)}
                   >
                     {item.label}

@@ -25,7 +25,7 @@ export const SignUp = () => {
     {
       type: "text",
       placeholder: "Enter your email ...",
-      label: "email",
+      label: "Email",
       onChange: (e) => handleInputChange("email", e.target.value),
     },
     {
@@ -56,8 +56,10 @@ export const SignUp = () => {
 
   // A function that is called when the form is submitted
   const handleSubmit = async () => {
-    await signup(formData);
-    navigate("/login");
+    const isSuccess = await signup(formData);
+    if (isSuccess) {
+      navigate("/login");
+    }
   };
   const handleLinkButton = () => {
     navigate("/login");

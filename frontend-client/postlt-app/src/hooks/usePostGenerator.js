@@ -8,6 +8,7 @@ const usePostGenerator = () => {
   const [loading, setLoading] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
   const [error, setError] = useState("");
+  
 
   const checkAuth = () => {
     const userData = localStorage.getItem("user");

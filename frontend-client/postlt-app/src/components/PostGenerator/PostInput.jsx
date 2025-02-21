@@ -33,7 +33,7 @@ export const PostInput = ({
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              className="w-full rounded-md border border-gray-300 p-3 text-sm shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+              className="w-full rounded-md border border-gray-300 p-3 text-sm shadow-sm"
               placeholder="Enter your post content here..."
               rows={4}
             />
@@ -48,7 +48,8 @@ export const PostInput = ({
               <select
                 value={platform}
                 onChange={handlePlatformChange}
-                className="w-full appearance-none rounded-md border border-gray-300 p-3 pr-8 text-sm shadow-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                className="w-full appearance-none rounded-md border border-gray-300 p-3 pr-8 text-sm shadow-sm"
+                defaultValue="LinkedIn"
               >
                 <option value="linkedin">LinkedIn</option>
                 <option value="facebook">Facebook</option>

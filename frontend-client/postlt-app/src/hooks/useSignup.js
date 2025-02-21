@@ -27,12 +27,24 @@ export const useSignup = () => {
           withCredentials: true,
         }
       );
-      console.log("signup response ", response);
-      toast.success("Signup successful");
-      //store the user info in the localstorage
-      localStorage.setItem("user", JSON.stringify(response.data));
-      //auth context
-      setAuthUser(response.data);
+      const userData = {
+        tokens: {
+          access: response.data.access,
+          refresh: response.data.refresh,
+        },
+        user: response.data.user || {}, // Fallback in case user data isn't included
+      };
+
+      // Set up axios defaults for future authenticated requests
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${response.data.access}`;
+
+      localStorage.setItem("user", JSON.stringify(userData));
+      setAuthUser(userData);
+      toast.success("Successful Signup");
+
+      return true;
     } catch (error) {
       // Handle the error based on the response from the backend
       if (error.response && error.response.data) {

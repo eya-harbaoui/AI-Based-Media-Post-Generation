@@ -5,13 +5,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-image: url("../src/assets/images/bg-tablet-pattern.svg");
-  background-repeat: no-repeat;
-  background-size: 800px;
-  background-position: 90% -25%;
-}
-
 #cta {
   background-image: url("./assets/images/bg-simplify-section-desktop.svg");
   background-repeat: no-repeat;

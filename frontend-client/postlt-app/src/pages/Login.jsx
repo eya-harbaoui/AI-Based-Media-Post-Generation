@@ -16,7 +16,7 @@ export const Login = () => {
     {
       type: "text",
       placeholder: "Enter username ...",
-      label: "username",
+      label: "Username",
       onChange: (e) => handleInputChange("username", e.target.value),
     },
     {
@@ -39,8 +39,10 @@ export const Login = () => {
 
   // A function that is called when the form is submitted
   const handleSubmit = async () => {
-    await login(formData);
-    navigate("/generate");
+    const isSuccess = await login(formData);
+    if (isSuccess) {
+      navigate("/generate");
+    }
   };
   const handleLinkButton = () => {
     navigate("/signup");
@@ -48,15 +50,15 @@ export const Login = () => {
 
   return (
     <div className="flex justify-center mt-5 h-screen">
-        <AuthForm
-          title="Login In"
-          buttonText="Login"
-          fields={loginFields}
-          linkText="Don't have an account"
-          icon={<FaRegCircleUser className="size-14 text-[#28AA4A]" />}
-          handleSubmit={handleSubmit}
-          handleLinkButton={handleLinkButton}
-        />
+      <AuthForm
+        title="Login In"
+        buttonText="Login"
+        fields={loginFields}
+        linkText="Don't have an account"
+        icon={<FaRegCircleUser className="size-14 text-[#28AA4A]" />}
+        handleSubmit={handleSubmit}
+        handleLinkButton={handleLinkButton}
+      />
     </div>
   );
 };

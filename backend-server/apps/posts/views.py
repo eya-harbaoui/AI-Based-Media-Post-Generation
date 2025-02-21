@@ -12,6 +12,7 @@ from .utils import AIService
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])  # only authenticated users 
 def create_post(request):
+    print("request",request.data)
     #step 1 : get the user request : content and platform
     original_content = request.data.get('original_content', '')
     platform = request.data.get('platform', '')
