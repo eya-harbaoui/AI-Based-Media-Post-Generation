@@ -15,7 +15,8 @@ PostIt is a web application that uses AI to generate customized social media pos
 - Django REST Framework
 - SQLite3 Database
 - JWT Authentication
-
+- deepseek API : https://openrouter.ai/api/v1/chat/completions
+- model used : deepseek/deepseek-chat:free
 ## Features
 
 ### Landing Page
@@ -63,6 +64,8 @@ PostIt is a web application that uses AI to generate customized social media pos
 ```bash
 git clone https://github.com/eya-harbaoui/AI-Based-Media-Post-Generation
 cd AI-Based-Media-Post-Generation
+add a .env file in the backend-server folder containing : (DJANGO_SECRET_KEY=youkey, DEBUG=True , DEEPSEEK_API_KEY=yourkey)
+
 ```
 
 2. Run the application using Docker
