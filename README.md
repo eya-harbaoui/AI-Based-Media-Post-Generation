@@ -23,6 +23,12 @@ PostIt is a web application that uses AI to generate customized social media pos
 - Features showcase
 - About section
 - Navigation bar with authentication options
+![My Image](hero.png)
+![My Image](features.png)
+![My Image](about.png)
+
+
+
 
 ### User Authentication
 - Complete user authentication flow (Sign up, Login, Logout)
@@ -114,6 +120,3 @@ python manage.py runserver
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
