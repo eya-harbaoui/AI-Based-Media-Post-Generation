@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../context/AuthContext";
 import Navbar from "../components/Landing/Navbar";
@@ -12,7 +12,7 @@ export const PostGenerator = () => {
   const { authUser } = useAuthContext();
   const navigate = useNavigate();
   const { logout, loading: logoutLoading } = useLogout();
-
+  //verify if the user is authentified
   React.useEffect(() => {
     if (!authUser) {
       navigate("/login");
@@ -38,19 +38,15 @@ export const PostGenerator = () => {
     setGeneratedContent(""); // Clear generated content when platform changes
   };
 
-  const handleRegenerate = () => {
-    setContent("");
-    setGeneratedContent(""); // Clear generated content when regenerating
-  };
-
   const handleLogout = async () => {
     await logout();
-    // After successful logout, useEffect will redirect to login
+    // After successful logout redirect to login
   };
 
   if (!authUser) {
     return null;
   }
+  // Logout functionnality
 
   const cta = {
     label: logoutLoading ? "Logging out..." : "Logout",

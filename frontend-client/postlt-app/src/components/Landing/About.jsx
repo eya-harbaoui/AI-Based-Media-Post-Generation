@@ -1,12 +1,6 @@
-import { Link } from "react-router-dom";
 import { Linkedin, Facebook, Twitter } from "lucide-react";
 
 const About = () => {
-  const handleCTAClick = (e) => {
-    e.preventDefault();
-    console.log("About CTA Clicked");
-    // Add your CTA logic here
-  };
 
   return (
     <section id="about" className="py-20  bg-[#28aa4b13]">

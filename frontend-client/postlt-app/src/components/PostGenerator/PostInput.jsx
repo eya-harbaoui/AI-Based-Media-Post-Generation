@@ -12,6 +12,7 @@ export const PostInput = ({
   error,
   setGeneratedContent,
 }) => {
+  // choose the social media platform
   const handlePlatformChange = (e) => {
     setPlatform(e.target.value);
     setGeneratedContent(null);

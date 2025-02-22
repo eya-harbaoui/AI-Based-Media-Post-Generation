@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 import Features from "../components/Landing/Features";
 import Navbar from "../components/Landing/Navbar";
 import Hero from "../components/Landing/Hero";
@@ -7,9 +7,9 @@ import About from "../components/Landing/About";
 import companyLogo from "../assets/images/logo.png";
 
 export const Landing = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
-  // Handle anchor links on page load
+  //Handle anchor links on page load
   useEffect(() => {
     // If URL contains a hash on load, scroll to that section
     if (window.location.hash) {
@@ -21,17 +21,19 @@ export const Landing = () => {
       }
     }
   }, []);
+  // Menu Items
 
   const menuItems = [
     { label: "Hero", path: "#hero" },
     { label: "Features", path: "#features" },
     { label: "About", path: "#about" },
   ];
+  //Navbar Button
 
   const cta = {
     label: "Get Started",
     onClick: () => {
-      navigate("/login"); // Navigate to /login on click
+      navigate("/login");
     },
   };
 

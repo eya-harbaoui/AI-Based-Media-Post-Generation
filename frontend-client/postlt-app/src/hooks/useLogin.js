@@ -26,7 +26,7 @@ export const useLogin = () => {
           access: response.data.access,
           refresh: response.data.refresh,
         },
-        user: response.data.user || {}, // Fallback in case user data isn't included
+        user: response.data.user || {},
       };
 
       // Set up axios defaults for future authenticated requests

@@ -28,9 +28,7 @@ const Navbar = ({ logo, menuItems, cta }) => {
 
   return (
     <nav className="relative container mx-auto p-6 ">
-      {/* Flex Container */}
       <div className="flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="pt-2 w-28 md:w-40">
           <img src={logo} alt="Company Logo" />
         </Link>
@@ -71,7 +69,6 @@ const Navbar = ({ logo, menuItems, cta }) => {
           ))}
         </div>
 
-        {/* Call-to-Action Button */}
         {cta && (
           <button
             type="button"
@@ -100,7 +97,6 @@ const Navbar = ({ logo, menuItems, cta }) => {
         } md:hidden z-50`}
       >
         <div className="flex flex-col h-full">
-          {/* Close Button */}
           <button
             onClick={() => setToggleMenu(false)}
             className="self-end p-6"
@@ -109,7 +105,6 @@ const Navbar = ({ logo, menuItems, cta }) => {
             <X size={28} />
           </button>
 
-          {/* Menu Items - Properly Centered */}
           <div className="flex flex-col items-center justify-center flex-grow gap-6 font-semibold">
             {menuItems.map((item) => (
               <span key={item.label}>
@@ -157,7 +152,6 @@ const Navbar = ({ logo, menuItems, cta }) => {
             )}
           </div>
 
-          {/* Add empty space at bottom for balance */}
           <div className="h-16"></div>
         </div>
       </div>

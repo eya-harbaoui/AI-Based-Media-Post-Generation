@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { POST_URL } from "../utils/Endpoints";
+import toast from "react-hot-toast";
 
 const usePostGenerator = () => {
   const [content, setContent] = useState("");
@@ -8,8 +9,7 @@ const usePostGenerator = () => {
   const [loading, setLoading] = useState(false);
   const [generatedContent, setGeneratedContent] = useState("");
   const [error, setError] = useState("");
-  
-
+  // check  if the user is authenticated
   const checkAuth = () => {
     const userData = localStorage.getItem("user");
     if (!userData) {
@@ -18,12 +18,13 @@ const usePostGenerator = () => {
     const { tokens } = JSON.parse(userData);
     return tokens.access;
   };
+  // generate the post
 
   const handleGenerate = async () => {
     try {
       setLoading(true);
       setError("");
-      setGeneratedContent(""); // Clear previous generated content
+      setGeneratedContent("");
 
       const token = checkAuth();
 
@@ -57,10 +58,22 @@ const usePostGenerator = () => {
       setLoading(false);
     }
   };
+  // Copy the content of the generated post
 
   const handleCopy = () => {
     navigator.clipboard.writeText(generatedContent);
+    toast.success("Copied", {
+      style: {
+        border: "1px solid #9A7E6F",
+        color: "#9A7E6F",
+      },
+      iconTheme: {
+        primary: "#9A7E6F",
+        secondary: "#FFFAEE",
+      },
+    });
   };
+  // Download the content of the generated post in txt format
 
   const handleDownload = () => {
     const element = document.createElement("a");
@@ -70,6 +83,16 @@ const usePostGenerator = () => {
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
+    toast.success("Downloaded", {
+      style: {
+        border: "1px solid #9A7E6F",
+        color: "#9A7E6F",
+      },
+      iconTheme: {
+        primary: "#9A7E6F",
+        secondary: "#FFFAEE",
+      },
+    });
   };
 
   return {
