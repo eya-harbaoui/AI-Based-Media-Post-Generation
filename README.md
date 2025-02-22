@@ -100,6 +100,7 @@ npm run dev
 ```bash
 cd backend-server
 python -m venv venv
+venv\Scripts\activate  (or source venv/bin/activate)
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
