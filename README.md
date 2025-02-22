@@ -51,8 +51,8 @@ PostIt is a web application that uses AI to generate customized social media pos
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/postit.git
-cd postit
+git clone https://github.com/eya-harbaoui/AI-Based-Media-Post-Generation
+cd AI-Based-Media-Post-Generation
 ```
 
 2. Run the application using Docker
@@ -80,8 +80,8 @@ run.sh
 ## API Endpoints
 
 - `/api/users/register/` - User registration
-- `/api/auth/login/` - User login
-- `/api/auth/logout/` - User logout
+- `/api/users/login/` - User login
+- `/api/users/logout/` - User logout
 - `/api/posts/create/` - Generate new social media posts
 - `/api/posts/user` - List saved posts
 
