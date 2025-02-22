@@ -47,7 +47,7 @@ PostIt is a web application that uses AI to generate customized social media pos
 - Preview generated posts
 - Copy-to-clipboard functionality
 - Download posts as text files
-![My Image](generateContent.png)
+![My Image](generatedContent.png)
 ### Responsive Design
 - Fully mobile-friendly interface
 
